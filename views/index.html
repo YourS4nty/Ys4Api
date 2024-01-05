@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YourS4nty - Rest API</title>
+  <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+  <link rel="stylesheet" href="CodeColor.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="icon" type="image/x-icon" href="/My-Logo.png">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Menu Section -->
+    <div class="drawer">
+      <a class="navicon" href="#"><img src="https://i.ibb.co/thv7yFR/imagen.png" alt="Img"></a>
+      <div class="menu">
+        <a data-menu="dashboard" href="#" class="active"><i class="icon ion-home"></i></a>
+        <a data-menu="users" href="#"><i class="icon ion-android-list"></i></a>
+        <a href="#" onclick="view()"><i class="icon ion-star"></i></a>
+        <a data-menu="Help" href="#"><i class="icon ion-help-circled"></i></a>
+        <a data-menu="about" href="#"><i class="icon ion-information-circled"></i></a>
+      </div>
+      <span class="credits">&copy;YourS4nty</span>
+    </div>
+    <!-- Menu Section -->
+
+    <!-- content Section -->
+    <div class="content">
+
+      <!-- First -->
+      <div class="page active" data-page="dashboard">
+        <div class="header">
+          <div class="title">
+            <h2 class="wText"></h2>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="card"><!-- Your Info -->
+            <div class="head">
+              <span class="icon">
+                <i class="icon ion-network"></i>
+              </span>
+              <span class="stat">
+                Your Info
+              </span>
+            </div>
+            <div class="body2">
+              <h2>Hello😊</h2>
+              <p>This is Your ip Address: <strong><span id="ipAdd"></span></strong></p>
+              <p>This is Your Vendor: <br> <strong><span id="ipAdd2"></span></strong></p>
+              <p>This is Your Cookies Status: <br> <strong><span id="ipAdd3"></span></strong></p>
+            </div>
+          </div>
+          <div class="card"> <!-- Battery Level -->
+            <div class="head">
+              <span class="icon">
+                <i class="icon ion-battery-full"></i>
+              </span>
+              <span class="stat">
+                Battery Level
+              </span>
+            </div>
+            <div class="body">
+              <p>Your Battery Percentage Is : <br><span id="battery1"></span></p>
+              <div class="battery_happy">
+                <div class="battery">
+                  <div class="face"></div>
+                  <div class="acid"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card"> <!-- Calendar -->
+            <div class="head">
+              <span class="icon">
+                <i class="icon ion-android-calendar"></i>
+              </span>
+              <span class="stat">
+                Date/Time
+              </span>
+            </div>
+            <div class="body2">
+              <div id="calendar"></div>
+              <br>
+              <div id="Clock"></div>
+            </div>
+          </div>
+          <div class="card"> <!-- Info -->
+            <div class="head">
+              <span class="icon">
+                <i class="icon ion-information"></i>
+              </span>
+              <span class="stat">
+                Your WebInfo
+              </span>
+            </div>
+            <div class="body">
+              <div id="Statistic"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- First -->
+
+      <!-- Second -->
+      <div class="page noflex" data-page="users">
+        <div class="header">
+          <div class="title">
+            <h2>List Api</h2>
+          </div>
+        </div>
+        <div class="apisList">
+          <ul>
+            <li>QrCodeGenerator (Not Working)<a href="/qrcode?text=Hola"><span>Try it</span></a></li>
+            <li>Base64 Encoder<a href="/binEncode?text=hello"><span>Try it</span></a></li>
+            <li>Base64 Decoder<a href="/binDecode?text=aGVsbG8="><span>Try it</span></a></li>
+            <li>Passwor Generator(random)<a href="/passGen?length=10"><span>Try it</span></a></li>
+            <li>Lorem Ipsum Generator<a href="/loremIpsum?count=5&units=sentences"><span>Try it</span></a></li>
+            <li>UUID Generator<a href="/uuidGen"><span>Try it</span></a></li>
+            <li>Credit Card Validator<a href="/validateCreditCard?cardNumber=1234567812345670"><span>Try it</span></a></li>
+            <li>Country Info<a href="/countryinfo?country=colombia"><span>Try it</span></a></li>
+            <li>Book Info<a href="/bookInfo?title=chupaelperro"><span>Try it</span></a></li>
+            <li>Coming Soon...<a href="#"><span>Try it</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Second -->
+
+      <!-- Third -->
+      <div class="page noflex" data-page="Help">
+        <div class="header">
+          <div class="title">
+            <h2>Using The API</h2>
+          </div>
+        </div>
+        <div class="grid gridresponsive">
+          <div class="card ">
+            <div class="head">
+              <span class="icon">
+                <i class="icon ion-code-working"></i>
+              </span>
+              <span class="stat">
+                Using In Nodejs
+              </span>
+            </div>
+            <div class="body">
+              <pre>
+                <code class="language-javascript">
+const fetch = require('node-fetch');
+
+router.get('/uuidGenerator', async (req, res) => {
+  try {
+    const response = await fetch(`https://yours4nty-80731625c628.herokuapp.com/uuidGen`);
+    const data = await response.json();
+
+    res.json({
+      status: true,
+      result: data.result
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+                </code>
+              </pre>
+            </div>
+          </div>
+          <div class="card ">
+            <div class="head">
+              <span class="icon">
+                <i class="icon ion-code-working"></i>
+              </span>
+              <span class="stat">
+                Using In Python
+              </span>
+            </div>
+            <div class="body">
+              <pre>
+                <code class="language-python">
+import requests
+
+url = "https://yours4nty-80731625c628.herokuapp.com/uuidGen"
+response = requests.get(url)
+
+if response.status_code == 200:
+    data = response.json()
+else:
+    print("Error, Invalid HTTP Request!!")
+                </code>
+              </pre>
+            </div>
+          </div>
+          <div class="card ">
+            <div class="head">
+              <span class="icon">
+                <i class="icon ion-code-working"></i>
+              </span>
+              <span class="stat">
+                Using In Php
+              </span>
+            </div>
+            <div class="body">
+              <pre>
+                <code class="language-php">
+$url = "https://yours4nty-80731625c628.herokuapp.com/uuidGen";
+$response = file_get_contents($url);
+
+if ($response !== false) {
+    $data = json_decode($response, true);
+} else {
+    echo "Error, Invalid HTTP Request!!";
+}
+
+                </code>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Third -->
+
+      <!-- About Section -->
+      <div class="page noflex" data-page="about">
+        <div class="header">
+          <div class="title">
+            <h2>About ❓</h2>
+          </div>
+        </div>
+        <div class="info-container">
+          <div class="info">
+            <a href="http://instagram.com/MrS4nty" target="_blank">Developer</a>
+            <span>Santiago González 🪭</span>
+          </div>
+          <div class="info">
+            <a href="#">Code Base</a>
+            <span>Node.js 🫦</span>
+          </div>
+          <div class="info">
+            <a href="#">Api Version</a>
+            <span>1.0 ✨</span>
+          </div>
+          <div class="info">
+            <a href="#">Apikey</a>
+            <span>Don't Worry, In This Beta Is Not Necessary ❤️</span>
+          </div>
+          <div class="info">
+            <a href="#">Need Help?</a>
+            <span>The Docs Page Is Cominng Soon...</span>
+          </div>
+          <div class="info">
+            <a href="#">Let's Talk</a>
+            <span>Here's My IG : <a href="http://instagram.com/MrS4nty" target="_blank">
+                <i class="icon2 ion-social-instagram"></i>
+              </a></span>
+          </div>
+        </div>
+      </div>
+      <!-- About Section -->
+
+    </div>
+    <!-- content Section -->
+
+  </div>
+
+  <!-- Dialog Section -->
+  <div class="dialog">
+    <div class="dialog-block">
+      <h2>Coming Soon...</h2>
+      <p>The next update of this popup will have the complete version for users of this API, with practical examples and a more understandable UI for everyone. <br> ♡Please be patient while the next update is coming.♡</p>
+      <div class="controls">
+        <a onclick="hide()" href="#" class="button">Close Panel</a>
+      </div>
+    </div>
+  </div>
+  <!-- Dialog Section -->
+
+</body>
+<script src="HighLight.js"></script>
+<script>hljs.highlightAll();</script>
+<script src="main.js"></script>
+
+</html>

@@ -1,0 +1,82 @@
+@media only screen and (max-width: 600px) {
+    .drawer {
+        position: fixed;
+        width: 100%;
+        height: 100px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .navicon img {
+        top: 7px;
+    }
+
+    .drawer .menu {
+        display: flex;
+        grid-column: span 2;
+        align-items: center;
+    }
+
+    .drawer .credits {
+        display: none;
+    }
+
+    .wText {
+        width: 100vw;
+        display: inline;
+        font-size: 15px;
+    }
+
+    .title {
+        position: absolute;
+        top: 120%;
+        left: -2%;
+        height: 30px;
+        width: 100vw;
+        font-size: 15px;
+        line-height: 0;
+    }
+
+    .grid {
+        height: 75%;
+        display: grid;
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+        position: relative;
+    }
+
+    .grid .card {
+        width: 100%;
+        height: 500px;
+        margin: 10% 0;
+    }
+
+    .apisList {
+        height: 70%;
+        width: 90%;
+        transform: translateY(100px);
+    }
+
+    li {
+        height: 35px;
+        line-height: 35px;
+    }
+
+    .dialog-block {
+        width: 90%;
+        margin: auto;
+        border: 1px solid cornflowerblue;
+    }
+
+    .gridresponsive {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .info-container {
+        position: absolute;
+        bottom: 10%;
+        left: -5%;
+        width: 110%;
+    }
+}
